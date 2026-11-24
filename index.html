@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Same rule the hosted app would use: this page may only talk to the site it
+     came from and to Ollama on this computer. Edge blocks everything else. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; worker-src 'self'; connect-src 'self' http://localhost:11434 http://127.0.0.1:11434; style-src 'self'; img-src 'self' data:; manifest-src 'self'; base-uri 'none'; form-action 'none'">
+<title>AEP Hosting Check</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>AEP hosting check</h1>
+  <p class="lead">Tests whether a lesson website can use the AI tutor on this computer while
+    keeping everything about the student here. No lesson content, no names, and nothing
+    you type is involved. Results stay on this page until you copy them.</p>
+
+  <section class="panel">
+    <h2>1. Run the checks</h2>
+    <p>Sign in with the student account, make sure Ollama is running (llama icon near the
+      clock), then select the button. If Edge asks whether this site may
+      <strong>access other apps and services on this device</strong>, choose <strong>Allow</strong>
+      and note that it asked.</p>
+    <button id="run" type="button">Run checks</button>
+    <span id="busy" role="status" aria-live="polite"></span>
+    <ol id="results" class="results" aria-live="polite"></ol>
+  </section>
+
+  <section class="panel" id="originHelp" hidden>
+    <h2>2. If Ollama refused this site</h2>
+    <p>Ollama only answers websites it has been told to trust. In the student account, open
+      <strong>Command Prompt</strong> (not as administrator) and run:</p>
+    <pre id="setxCommand"></pre>
+    <p>Then quit Ollama (right-click the llama icon → Quit), start it again from the Start menu,
+      reload this page, and run the checks again.</p>
+  </section>
+
+  <section class="panel">
+    <h2>3. Check that saved data survives</h2>
+    <p>This page counts its visits in the same browser storage the lesson player uses.
+      After running the checks, <strong>sign out of Windows, sign back in</strong>, open this page
+      again, and run the checks once more. If the visit count went up, students' saved progress
+      survives signing out.</p>
+  </section>
+
+  <section class="panel">
+    <h2>4. Copy the results</h2>
+    <p>Select the button and paste the results back to Claude.</p>
+    <button id="copy" type="button" class="secondary" disabled>Copy results</button>
+    <span id="copied" role="status" aria-live="polite"></span>
+    <textarea id="report" rows="14" readonly aria-label="Results to copy"></textarea>
+  </section>
+</main>
+<script src="check.js"></script>
+</body>
+</html>
