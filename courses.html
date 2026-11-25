@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Same rule as the hosting check: only this site and Ollama on this computer. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; worker-src 'self'; connect-src 'self' http://localhost:11434 http://127.0.0.1:11434; style-src 'self'; img-src 'self' data:; manifest-src 'self'; base-uri 'none'; form-action 'none'">
+<title>AEP Course Update Test</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>AEP course update test</h1>
+  <p class="lead">Stands in for the lesson player's course library. Courses arrive from
+    signed update files posted in Canvas. Everything is stored in this browser only.</p>
+
+  <section class="panel" aria-labelledby="statusHeading">
+    <h2 id="statusHeading">Latest update</h2>
+    <p id="status" role="status" aria-live="polite">Waiting for an update file. Double-click a downloaded
+      update file and select <strong>Update lessons</strong>, or drag the file onto this page.</p>
+    <p><label class="filepick">Or choose a file: <input id="pick" type="file" accept=".html,text/html"></label></p>
+  </section>
+
+  <section class="panel" aria-labelledby="coursesHeading">
+    <h2 id="coursesHeading">Installed courses</h2>
+    <div id="courses"><p>Loading…</p></div>
+  </section>
+
+  <section class="panel" aria-labelledby="logHeading">
+    <h2 id="logHeading">Results to copy</h2>
+    <p>After working through the test steps, copy this and paste it to Claude.</p>
+    <button id="copy" type="button" class="secondary">Copy results</button>
+    <button id="reset" type="button" class="secondary">Start over</button>
+    <span id="copied" role="status" aria-live="polite"></span>
+    <textarea id="log" rows="12" readonly aria-label="Results to copy"></textarea>
+  </section>
+  <p class="detail"><a href="./">Back to the hosting check</a></p>
+</main>
+<script src="courses-key.js"></script>
+<script src="courses.js"></script>
+</body>
+</html>

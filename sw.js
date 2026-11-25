@@ -1,7 +1,7 @@
 // Offline cache for this page's own files (the hosted app would do the same).
 // Requests to Ollama or any other site are never touched.
-const CACHE = 'aep-hosting-check-v1';
-const FILES = ['./', './index.html', './check.js', './worker.js', './style.css'];
+const CACHE = 'aep-hosting-check-v2';
+const FILES = ['./', './index.html', './check.js', './worker.js', './style.css', './courses.html', './courses.js', './courses-key.js'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(FILES)).then(() => self.skipWaiting()));

@@ -27,3 +27,12 @@ button:disabled { opacity: .5; cursor: not-allowed; }
 .results .detail { color: var(--muted); font-size: .92rem; overflow-wrap: anywhere; }
 pre, textarea { width: 100%; background: var(--bg); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 10px; font: .85rem/1.4 Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
 textarea { margin-top: 10px; resize: vertical; }
+#status.ok { color: var(--ok); font-weight: 700; }
+#status.bad { color: var(--bad); font-weight: 700; }
+.course { border-top: 1px solid var(--line); padding: 12px 0; }
+.course h3 { margin: 0; color: var(--navy); font-size: 1.05rem; }
+.course ul { padding-left: 1.2em; }
+.detail { color: var(--muted); font-size: .92rem; }
+.filepick { color: var(--muted); }
+a { color: var(--accent); }
+body.dropping main { outline: 3px dashed var(--accent); outline-offset: -8px; }
